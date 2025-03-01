@@ -6,6 +6,22 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preload" as="image" href="images/pfp.jpg">
     <title>Sam Croswell</title>
+    <style>
+      .rotating-image {
+        transform-origin: center center;
+        animation: none; /* Initially no animation */
+        will-change: transform; /* Optimize performance */
+      }
+
+      @keyframes clockwiseRotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
     <div
@@ -15,7 +31,7 @@
         class="hover:opacity-75 transition-all duration-200"
         href="https://www.linkedin.com/in/sam-croswell/"
         target="_blank"
-        ><img src="images/pfp.jpg" alt="pfp"
+        ><img src="images/pfp.jpg" alt="pfp" class="rotating-image"
       /></a>
     </div>
     <div class="hidden xl:block auto top-12 right-12 fixed">
@@ -34,7 +50,7 @@
             class="hover:opacity-75 transition-all duration-200"
             href="https://www.linkedin.com/in/sam-croswell/"
             target="_blank"
-            ><img src="images/pfp.jpg" alt="pfp"
+            ><img src="images/pfp.jpg" alt="pfp" class="rotating-image"
           /></a>
         </div>
         <span class="font-bold text-neutral-950"
@@ -169,5 +185,18 @@
         </div>
       </div>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const image = document.querySelector('.rotating-image');
+        
+        window.addEventListener('scroll', () => {
+          // Calculate rotation based on scroll position
+          const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 360;
+          
+          // Apply the rotation
+          image.style.transform = `rotate(${scrollPercent}deg)`;
+        });
+      });
+    </script>
   </body>
 </html>
