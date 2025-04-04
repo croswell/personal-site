@@ -6,65 +6,65 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preload" as="image" href="images/pfp.jpg">
     <title>Sam Croswell</title>
-    <style>
-      .rotating-image {
-        transform-origin: center center;
-        animation: none; /* Initially no animation */
-        will-change: transform; /* Optimize performance */
-      }
-
-      @keyframes clockwiseRotate {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
   </head>
   <body>
-    <div
-      class="hidden xl:block auto top-12 left-12 fixed w-12 h-12 rounded-full overflow-hidden"
-    >
-      <a
-        class="hover:opacity-75 transition-all duration-200"
-        href="https://www.linkedin.com/in/sam-croswell/"
-        target="_blank"
-        ><img src="images/pfp.jpg" alt="pfp" class="rotating-image"
-      /></a>
-    </div>
-    <div class="hidden xl:block auto top-12 right-12 fixed">
-      <a
-        class="bg-white border border-neutral-200 px-4 py-2 rounded-full shadow-sm text-neutral-950 text-sm font-medium leading-none hover:shadow-md hover:border-neutral-300 transition-all duration-200"
-        href="mailto:jscroswell@gmail.com"
-        >Contact Me</a
-      >
-    </div>
-    <div
-      class="flex flex-col px-8 py-12 mx-auto items-center justify-center sm:py-24"
-    >
-      <div class="flex flex-col max-w-lg md:py-40 gap-6">
-        <div class="block xl:hidden w-12 h-12 rounded-full overflow-hidden">
+    <div class="flex flex-col px-8 py-12 mx-auto items-center justify-center sm:py-24">
+      <div class="flex flex-col max-w-md py-8 gap-8">
+        <div class="flex gap-6">
+          <div class="w-24 h-24 rounded-full overflow-hidden">
+            <img src="images/pfp.jpg" alt="pfp"/>
+          </div>
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-col">
+              <span class="font-bold text-xl text-neutral-950">Sam Croswell</span>
+              <span class="text-neutral-500 text-sm">Product Designer</span>
+            </div>
+            <div class="flex items-center gap-2 text-neutral-600">
+              <div class="flex items-center gap-1.5 bg-neutral-100 px-3 py-1.5 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span class="text-xs">California</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="text-neutral-500">
+          For the last 12 years I've helped turn early-stage ideas into delightful and impactful products. I move fast, focus on what matters, and help teams build with confidence and clarity.
+        </span>
+
+        <div class="flex gap-3">
           <a
-            class="hover:opacity-75 transition-all duration-200"
+            class="bg-neutral-950 text-white border border-neutral-950 px-6 py-3 rounded-full shadow-sm text-sm font-medium leading-none hover:bg-neutral-800 hover:border-neutral-800 hover:shadow-md  transition-all duration-200"
+            href="mailto:jscroswell@gmail.com"
+            >Contact Me</a
+          >
+          <a
+            class="flex items-center justify-center w-10 h-10 border border-neutral-200 rounded-full shadow-sm hover:shadow-md hover:border-neutral-300 transition-all duration-200"
             href="https://www.linkedin.com/in/sam-croswell/"
             target="_blank"
-            ><img src="images/pfp.jpg" alt="pfp" class="rotating-image"
-          /></a>
+            aria-label="LinkedIn Profile"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-600">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a
+            class="flex items-center justify-center w-10 h-10 border border-neutral-200 rounded-full shadow-sm hover:shadow-md hover:border-neutral-300 transition-all duration-200"
+            href="https://www.instagram.com/samcroswell/"
+            target="_blank"
+            aria-label="Instagram Profile"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-600">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
         </div>
-        <span class="font-bold text-neutral-950"
-          >Sam Croswell — Founding Designer</span
-        >
-        <span class="text-neutral-600">
-          I have over a decade of experience working with founders to design experiences that create positive
-          outcomes for both their business and their customers.
-        </span>
-        <a
-          class="block xl:hidden w-fit bg-white border border-neutral-200 px-4 py-2 rounded-full shadow-sm text-neutral-950 text-sm font-medium leading-none hover:shadow-md hover:border-neutral-300 transition-all duration-200"
-          href="mailto:jscroswell@gmail.com"
-          >Contact Me</a
-        >
       </div>
     </div>
     <div
@@ -72,36 +72,6 @@
     >
       <div class="block">
         <div class="flex flex-col max-w-screen-lg gap-16 md:gap-32">
-          <img
-            src="images/synadia-brand.png"
-            alt="project"
-            class="rounded-lg md:rounded-2xl"
-            loading="lazy"
-          />
-          <img
-            src="images/synadia-login.png"
-            alt="project"
-            class="rounded-lg md:rounded-2xl"
-            loading="lazy"
-          />
-          <img
-            src="images/synadia-ui-kit.png"
-            alt="project"
-            class="rounded-lg md:rounded-2xl"
-            loading="lazy"
-          />
-          <img
-            src="images/synadia-system.png"
-            alt="project"
-            class="rounded-lg md:rounded-2xl"
-            loading="lazy"
-          />
-          <img
-            src="images/synadia-stream.png"
-            alt="project"
-            class="rounded-lg md:rounded-2xl"
-            loading="lazy"
-          />
           <img
             src="images/kajabi-sage.png"
             alt="project"
@@ -148,21 +118,38 @@
             class="rounded-lg md:rounded-2xl border border-neutral-200"
             loading="lazy"
           />
+          <img
+            src="images/synadia-brand.png"
+            alt="project"
+            class="rounded-lg md:rounded-2xl"
+            loading="lazy"
+          />
+          <img
+            src="images/synadia-login.png"
+            alt="project"
+            class="rounded-lg md:rounded-2xl"
+            loading="lazy"
+          />
+          <img
+            src="images/synadia-ui-kit.png"
+            alt="project"
+            class="rounded-lg md:rounded-2xl"
+            loading="lazy"
+          />
+          <img
+            src="images/synadia-system.png"
+            alt="project"
+            class="rounded-lg md:rounded-2xl"
+            loading="lazy"
+          />
+          <img
+            src="images/synadia-stream.png"
+            alt="project"
+            class="rounded-lg md:rounded-2xl"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const image = document.querySelector('.rotating-image');
-        
-        window.addEventListener('scroll', () => {
-          // Calculate rotation based on scroll position
-          const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 360;
-          
-          // Apply the rotation
-          image.style.transform = `rotate(${scrollPercent}deg)`;
-        });
-      });
-    </script>
   </body>
 </html>
