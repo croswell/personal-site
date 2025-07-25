@@ -583,6 +583,10 @@ video {
   animation-delay: 0.3s;
 }
 
+.delay-4 {
+  animation-delay: 0.4s;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -777,8 +781,21 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .pb-32 {
   padding-bottom: 8rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .font-\[Satoshi\] {
@@ -812,6 +829,11 @@ video {
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-bold {
@@ -949,6 +971,11 @@ video {
   .dark\:text-neutral-950 {
     --tw-text-opacity: 1;
     color: rgb(10 10 10 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-neutral-200 {
+    --tw-text-opacity: 1;
+    color: rgb(229 229 229 / var(--tw-text-opacity));
   }
 
   .dark\:hover\:border-neutral-500:hover {
