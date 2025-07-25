@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./css/style.css",
-    "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch"
+    "build": "tailwindcss -i ./input.css -o ./css/style.css --minify",
+    "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
+    "optimize-images": "imagemin images/* --out-dir=images/optimized",
+    "build-prod": "npm run build && npm run optimize-images"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.3",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^8.0.0"
   }
 }
