@@ -3,27 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sam Croswell - Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
+    <meta name="description" content="Sam Croswell - Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
     <meta name="keywords" content="product designer, UX design, UI design, web design, California" />
     <meta name="author" content="Sam Croswell" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://samcroswell.com/" />
-    <meta property="og:title" content="Sam Croswell | Product Designer" />
-    <meta property="og:description" content="Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
-    <meta property="og:image" content="https://samcroswell.com/images/pfp.jpg" />
+    <meta property="og:title" content="Sam Croswell | Founding Product Designer" />
+    <meta property="og:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
+    <meta property="og:image" content="https://samcroswell.com/images/webp/pfp.webp" />
+    <meta property="og:image:type" content="image/webp" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://samcroswell.com/" />
-    <meta property="twitter:title" content="Sam Croswell | Product Designer" />
-    <meta property="twitter:description" content="Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
-    <meta property="twitter:image" content="https://samcroswell.com/images/pfp.jpg" />
+    <meta property="twitter:title" content="Sam Croswell | Founding Product Designer" />
+    <meta property="twitter:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
+    <meta property="twitter:image" content="https://samcroswell.com/images/webp/pfp.webp" />
     
     <link rel="icon" type="image/x-icon" href="fav.ico">
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="preload" as="image" href="images/pfp.jpg">
+    <link rel="preload" as="image" href="images/webp/pfp.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/webp/dubclub-dashboard.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/webp/synadia-auth.webp" type="image/webp">
+    <link rel="preload" as="image" href="images/webp/kajabi-course-builder.webp" type="image/webp">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -39,7 +43,10 @@
       <div class="flex flex-col w-full max-w-3xl gap-12">
         <div class="flex gap-8 animate-fade-in delay-1 items-center">
           <div class="w-16 h-16 rounded-full overflow-hidden">
-            <img src="images/pfp.jpg" alt="pfp" loading="lazy"/>
+            <picture>
+              <source srcset="images/webp/pfp.webp" type="image/webp">
+              <img src="images/pfp.jpg" alt="Sam Croswell profile photo" loading="eager" decoding="async"/>
+            </picture>
           </div>
           <div class="flex flex-col gap-3">
             <div class="flex flex-col gap-1">
@@ -87,28 +94,43 @@
             DubClub — A redesigned brand and platform experience for discovering and creating sports betting communities.
           </div>
           <div class="flex mb-8 gap-3 items-center">
-            <img src="images/dubclub-icon.png" alt="DubClub Icon" class="w-9 h-9 rounded-lg" />
+            <picture>
+              <source srcset="images/webp/dubclub-icon.webp" type="image/webp">
+              <img src="images/dubclub-icon.png" alt="DubClub Icon" class="w-9 h-9 rounded-lg" loading="eager" decoding="async"/>
+            </picture>
             <span class="text-sm leading-none font-light uppercase" style="font-family: 'Geist Mono', monospace;">
               <span class="text-neutral-300">FOUNDING DESIGNER</span>
               <span class="text-neutral-400"> · 2024—PRESENT</span>
             </span>
           </div>
           <div class="flex flex-col w-full mx-auto gap-2 mb-2">
-            <div class="rounded-2xl w-full aspect-video shadow-sm  bg-neutral-950 border border-neutral-800">
-              <img src="images/dubclub-dashboard.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+            <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
+              <picture>
+                <source srcset="images/webp/dubclub-dashboard.webp" type="image/webp">
+                <img src="images/dubclub-dashboard.png" alt="DubClub Dashboard Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
-            <div class="rounded-2xl w-full aspect-video shadow-sm  bg-neutral-950 border border-neutral-800">
-              <img src="images/dubclub-discovery.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+            <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
+              <picture>
+                <source srcset="images/webp/dubclub-discovery.webp" type="image/webp">
+                <img src="images/dubclub-discovery.png" alt="DubClub Discovery Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
-            <div class="rounded-2xl w-full aspect-video shadow-sm  bg-neutral-950 border border-neutral-800">
-              <img src="images/dubclub-desktop.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+            <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
+              <picture>
+                <source srcset="images/webp/dubclub-desktop.webp" type="image/webp">
+                <img src="images/dubclub-desktop.png" alt="DubClub Desktop Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
           </div>
           <!-- DubClub Testimonial -->
           <div class="flex flex-col items-start sm:items-center justify-center rounded-2xl mb-40 border border-neutral-800 px-8 py-12">
-            <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
-              <img src="images/ryan-gaertner.png" alt="Ryan Gaertner" class="w-full h-full object-cover grayscale" />
-            </div>
+                      <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
+            <picture>
+              <source srcset="images/webp/ryan-gaertner.webp" type="image/webp">
+              <img src="images/ryan-gaertner.png" alt="Ryan Gaertner" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
+            </picture>
+          </div>
             <div class="text-left sm:text-center max-w-xl">
               <p class="text-neutral-300 leading-relaxed mb-4 font-[Inter]">
                 &ldquo;Sam is a relentlessly action-oriented problem solver. He ships thoughtful solutions fast with empathy and conviction.&rdquo;
@@ -124,7 +146,10 @@
             Synadia — Developed the brand and platform for building and managing distributed systems at scale.
           </div>
           <div class="flex mb-8 gap-3 items-center">
-            <img src="images/synadia-icon.png" alt="Synadia Icon" class="w-9 h-9 rounded-lg" />
+            <picture>
+              <source srcset="images/webp/synadia-icon.webp" type="image/webp">
+              <img src="images/synadia-icon.png" alt="Synadia Icon" class="w-9 h-9 rounded-lg" loading="eager" decoding="async"/>
+            </picture>
             <span class="text-sm leading-none font-light uppercase" style="font-family: 'Geist Mono', monospace;">
               <span class="text-neutral-300">FOUNDING DESIGNER</span>
               <span class="text-neutral-400"> · 2022—2024</span>
@@ -132,20 +157,32 @@
           </div>
           <div class="flex flex-col w-full mx-auto gap-2 mb-2">
             <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
-              <img src="images/synadia-auth.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+              <picture>
+                <source srcset="images/webp/synadia-auth.webp" type="image/webp">
+                <img src="images/synadia-auth.png" alt="Synadia Authentication Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
             <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
-              <img src="images/synadia-accounts.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+              <picture>
+                <source srcset="images/webp/synadia-accounts.webp" type="image/webp">
+                <img src="images/synadia-accounts.png" alt="Synadia Accounts Management" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
             <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
-              <img src="images/synadia-streaming.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+              <picture>
+                <source srcset="images/webp/synadia-streaming.webp" type="image/webp">
+                <img src="images/synadia-streaming.png" alt="Synadia Streaming Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
           </div>
           <!-- Synadia Testimonial -->
           <div class="flex flex-col items-start sm:items-center justify-center rounded-2xl mb-40 border border-neutral-800 px-8 py-12">
-            <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
-              <img src="images/byron-ruth.jpg" alt="Byron Ruth" class="w-full h-full object-cover grayscale" />
-            </div>
+                      <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
+            <picture>
+              <source srcset="images/webp/byron-ruth.webp" type="image/webp">
+              <img src="images/byron-ruth.jpg" alt="Byron Ruth" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
+            </picture>
+          </div>
             <div class="text-left sm:text-center max-w-xl">
               <p class="text-neutral-300 leading-relaxed mb-4 font-[Inter]">
                 &ldquo;Sam's ability to ramp up quickly, understand infras teams workflows, and solve their problems made him a key player in launching our platform.&rdquo;
@@ -161,7 +198,10 @@
             Kajabi — Relaunched the brand and all-in-one platform for creators to build, market, and sell online courses and digital products.
           </div>
           <div class="flex mb-8 gap-3 items-center">
-            <img src="images/kajabi-icon.png" alt="Kajabi Icon" class="w-9 h-9 rounded-lg" />
+            <picture>
+              <source srcset="images/webp/kajabi-icon.webp" type="image/webp">
+              <img src="images/kajabi-icon.png" alt="Kajabi Icon" class="w-9 h-9 rounded-lg" loading="eager" decoding="async"/>
+            </picture>
             <span class="text-sm leading-none font-light uppercase" style="font-family: 'Geist Mono', monospace;">
               <span class="text-neutral-300">FOUNDING DESIGNER</span>
               <span class="text-neutral-400"> · 2012—2022</span>
@@ -169,20 +209,32 @@
           </div>
           <div class="flex flex-col w-full mx-auto gap-2 mb-2">
             <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
-              <img src="images/kajabi-course-builder.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+              <picture>
+                <source srcset="images/webp/kajabi-course-builder.webp" type="image/webp">
+                <img src="images/kajabi-course-builder.png" alt="Kajabi Course Builder Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
             <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
-              <img src="images/kajabi-course-outline.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+              <picture>
+                <source srcset="images/webp/kajabi-course-outline.webp" type="image/webp">
+                <img src="images/kajabi-course-outline.png" alt="Kajabi Course Outline Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
             <div class="rounded-2xl w-full aspect-video shadow-sm bg-neutral-950 border border-neutral-800">
-              <img src="images/kajabi-community.png" alt="DubClub App" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
+              <picture>
+                <source srcset="images/webp/kajabi-community.webp" type="image/webp">
+                <img src="images/kajabi-community.png" alt="Kajabi Community Interface" class="w-full h-full object-cover rounded-2xl" loading="lazy" decoding="async"/>
+              </picture>
             </div>
           </div>
           <!-- Kajabi Testimonial -->
           <div class="flex flex-col items-start sm:items-center justify-center rounded-2xl mb-12 border border-neutral-800 px-8 py-12">
-            <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
-              <img src="images/court-mcfadzean.jpg" alt="Court McFadzean" class="w-full h-full object-cover grayscale" />
-            </div>
+                      <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
+            <picture>
+              <source srcset="images/webp/court-mcfadzean.webp" type="image/webp">
+              <img src="images/court-mcfadzean.jpg" alt="Court McFadzean" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
+            </picture>
+          </div>
             <div class="text-left sm:text-center max-w-xl">
               <p class="text-neutral-300 leading-relaxed mb-4 font-[Inter]">
                 &ldquo;Sam sets a high bar across every design detail. He leads with empathy, speed, and a focus on solving for clear outcomes.&rdquo;

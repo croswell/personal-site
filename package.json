@@ -6,8 +6,11 @@
   "scripts": {
     "build": "tailwindcss -i ./input.css -o ./css/style.css --minify",
     "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
-    "optimize-images": "imagemin images/* --out-dir=images/optimized",
-    "build-prod": "npm run build && npm run optimize-images"
+    "optimize-images": "node scripts/optimize-images.js",
+    "convert-webp": "node scripts/convert-webp.js",
+    "generate-responsive": "node scripts/generate-responsive.js",
+    "performance-check": "node scripts/performance-check.js",
+    "build-prod": "npm run optimize-images && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +20,8 @@
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-webp": "^8.0.0",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.3",
+    "sharp": "^0.33.2"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
