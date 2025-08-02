@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sam Croswell - Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
-    <meta name="keywords" content="product designer, UX design, UI design, web design, California, portfolio, founding designer, DubClub, Synadia, Kajabi" />
+    <meta name="description" content="Sam Croswell - Lead Product Designer with 13 years of experience building tools that help people launch businesses, grow communities, and go from idea to outcome." />
+    <meta name="keywords" content="product designer, staff product designer, principal product designer, UX design, UI design, web design, mobile designCalifornia, portfolio, lead designer, DubClub, Synadia, Kajabi" />
     <meta name="author" content="Sam Croswell" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://samcroswell.com/" />
@@ -12,8 +12,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://samcroswell.com/" />
-    <meta property="og:title" content="Sam Croswell | Founding Product Designer" />
-    <meta property="og:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and teams." />
+    <meta property="og:title" content="Sam Croswell | Lead Product Designer" />
+    <meta property="og:description" content="Lead Product Designer with 13 years of experience building tools that help people launch businesses, grow communities, and go from idea to outcome." />
     <meta property="og:image" content="https://samcroswell.com/images/webp/pfp.webp" />
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="400" />
@@ -24,8 +24,8 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://samcroswell.com/" />
-    <meta property="twitter:title" content="Sam Croswell | Founding Product Designer" />
-    <meta property="twitter:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and teams." />
+    <meta property="twitter:title" content="Sam Croswell | Lead Product Designer" />
+    <meta property="twitter:description" content="Lead Product Designer with 13 years of experience building tools that help people launch businesses, grow communities, and go from idea to outcome." />
     <meta property="twitter:image" content="https://samcroswell.com/images/webp/pfp.webp" />
     <meta property="twitter:creator" content="@samcroswell" />
     <meta property="twitter:site" content="@samcroswell" />
@@ -39,7 +39,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <title>Sam Croswell | Founding Product Designer</title>
+    <title>Sam Croswell | Lead Product Designer</title>
     
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
@@ -50,8 +50,8 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Sam Croswell",
-      "jobTitle": "Founding Product Designer",
-      "description": "Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and teams.",
+      "jobTitle": "Lead Product Designer",
+      "description": "Lead Product Designer with 13 years of experience building tools that help people launch businesses, grow communities, and go from idea to outcome.",
       "url": "https://samcroswell.com",
       "image": "https://samcroswell.com/images/webp/pfp.webp",
       "sameAs": [
@@ -92,15 +92,40 @@
       document.addEventListener('DOMContentLoaded', function() {
         const video = document.querySelector('video');
         if (video) {
-          // Try to play the video after a 1 second delay
+          // Check if it's a mobile device
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          
+          // Try to play the video after a delay
           setTimeout(() => {
-            video.play().catch(e => {
-              // Add click to play functionality if autoplay fails
-              video.addEventListener('click', () => {
-                video.play().catch(e => {});
+            // For mobile devices, try multiple autoplay strategies
+            if (isMobile) {
+              // Set video properties for mobile autoplay
+              video.muted = true;
+              video.playsInline = true;
+              
+              // Try to play immediately
+              video.play().catch(e => {
+                // If that fails, try with user interaction simulation
+                const playPromise = video.play();
+                if (playPromise !== undefined) {
+                  playPromise.catch(e => {
+                    // Add click to play functionality if autoplay fails
+                    video.addEventListener('click', () => {
+                      video.play().catch(e => {});
+                    });
+                  });
+                }
               });
-            });
-          }, 1000);
+            } else {
+              // Desktop autoplay
+              video.play().catch(e => {
+                // Add click to play functionality if autoplay fails
+                video.addEventListener('click', () => {
+                  video.play().catch(e => {});
+                });
+              });
+            }
+          }, 1500);
         }
       });
     </script>
@@ -120,7 +145,7 @@
           <div class="flex flex-col gap-2">
             <div class="flex flex-col gap-1">
               <h1 class="font-normal text-xl text-neutral-50">Sam Croswell</h1>
-              <span class="text-neutral-400 text-sm font-light uppercase" style="font-family: 'Geist Mono', monospace;">FOUNDING PRODUCT DESIGNER</span>
+              <span class="text-neutral-400 text-sm font-light uppercase" style="font-family: 'Geist Mono', monospace;">LEAD PRODUCT DESIGNER</span>
             </div>
           </div>
         </div>
@@ -249,7 +274,7 @@
               <img src="images/kajabi-icon.png" alt="Kajabi Icon" class="w-7 h-7 rounded-md" loading="eager" decoding="async"/>
             </picture>
             <span class="text-sm leading-none font-light uppercase" style="font-family: 'Geist Mono', monospace;">
-              <span class="text-neutral-300">FOUNDING DESIGNER</span>
+              <span class="text-neutral-300">STAFF DESIGNER</span>
               <span class="text-neutral-400"> · 2012—2022</span>
             </span>
           </div>
