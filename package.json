@@ -6,11 +6,9 @@
   "scripts": {
     "build": "tailwindcss -i ./input.css -o ./css/style.css --minify",
     "watch": "tailwindcss -i ./input.css -o ./css/style.css --watch",
-    "optimize-images": "node scripts/optimize-images.js",
     "convert-webp": "node scripts/convert-webp.js",
-    "generate-responsive": "node scripts/generate-responsive.js",
-    "performance-check": "node scripts/performance-check.js",
-    "build-prod": "npm run optimize-images && npm run build"
+    "optimize-video": "node scripts/optimize-video.js",
+    "build-prod": "npm run convert-webp && npm run build"
   },
   "keywords": [
     "portfolio",
@@ -21,10 +19,6 @@
   "author": "Sam Croswell",
   "license": "ISC",
   "devDependencies": {
-    "imagemin": "^8.0.1",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "imagemin-webp": "^8.0.0",
     "sharp": "^0.33.2",
     "tailwindcss": "^3.4.3"
   },

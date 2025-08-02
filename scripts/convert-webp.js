@@ -10,11 +10,28 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-// Get all image files
+// Only convert images that are actually used in the HTML
+const usedImages = [
+  'pfp.jpg',
+  'dubclub-icon.png',
+  'synadia-icon.png',
+  'kajabi-icon.png',
+  'dubclub-dashboard.png',
+  'dubclub-discovery.png',
+  'dubclub-mobile-dash.png',
+  'synadia-auth.png',
+  'synadia-dash.png',
+  'synadia-stream.png',
+  'kajabi-course.png',
+  'kajabi-outline.png',
+  'kajabi-community.png'
+];
+
+// Get only the used image files
 const imageFiles = fs.readdirSync(imagesDir)
   .filter(file => {
     const ext = path.extname(file).toLowerCase();
-    return ['.png', '.jpg', '.jpeg'].includes(ext);
+    return ['.png', '.jpg', '.jpeg'].includes(ext) && usedImages.includes(file);
   });
 
 console.log('Converting images to WebP format...');
