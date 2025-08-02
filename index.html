@@ -84,44 +84,62 @@
     </script>
     
     <script>
-      // Video autoplay fix
+      // Enhanced video autoplay for mobile Safari
       document.addEventListener('DOMContentLoaded', function() {
         const video = document.querySelector('video');
         if (video) {
-          // Check if it's a mobile device
-          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          // Ensure video is properly configured for autoplay
+          video.muted = true;
+          video.playsInline = true;
+          video.autoplay = true;
           
-          // Try to play the video after a delay
-          setTimeout(() => {
-            // For mobile devices, try multiple autoplay strategies
-            if (isMobile) {
-              // Set video properties for mobile autoplay
-              video.muted = true;
-              video.playsInline = true;
-              
-              // Try to play immediately
-              video.play().catch(e => {
-                // If that fails, try with user interaction simulation
-                const playPromise = video.play();
-                if (playPromise !== undefined) {
-                  playPromise.catch(e => {
-                    // Add click to play functionality if autoplay fails
-                    video.addEventListener('click', () => {
-                      video.play().catch(e => {});
-                    });
-                  });
-                }
-              });
-            } else {
-              // Desktop autoplay
-              video.play().catch(e => {
-                // Add click to play functionality if autoplay fails
+          // Function to attempt autoplay
+          function attemptAutoplay() {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(error => {
+                console.log('Autoplay failed:', error);
+                // Add click to play as fallback
                 video.addEventListener('click', () => {
-                  video.play().catch(e => {});
+                  video.play().catch(e => console.log('Click play failed:', e));
                 });
               });
             }
-          }, 1500);
+          }
+          
+          // Try autoplay immediately
+          attemptAutoplay();
+          
+          // Try again after a short delay (helps with some mobile browsers)
+          setTimeout(attemptAutoplay, 100);
+          
+          // Try again after page is fully loaded
+          window.addEventListener('load', () => {
+            setTimeout(attemptAutoplay, 500);
+          });
+          
+          // Try on first user interaction (helps with mobile Safari)
+          let hasInteracted = false;
+          const interactionEvents = ['touchstart', 'touchend', 'click', 'scroll'];
+          
+          interactionEvents.forEach(event => {
+            document.addEventListener(event, () => {
+              if (!hasInteracted && video.paused) {
+                hasInteracted = true;
+                setTimeout(attemptAutoplay, 100);
+              }
+            }, { once: true });
+          });
+          
+          // Additional mobile Safari specific handling
+          if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            // For iOS devices, try autoplay on visibility change
+            document.addEventListener('visibilitychange', () => {
+              if (!document.hidden && video.paused) {
+                setTimeout(attemptAutoplay, 100);
+              }
+            });
+          }
         }
       });
     </script>
@@ -182,7 +200,8 @@
           muted
           loop
           playsinline
-          preload="auto"
+          autoplay
+          preload="metadata"
           class="w-full h-full object-cover rounded-xl"
         >
           <source src="images/dubclub-recap-hq.mp4" type="video/mp4">
@@ -215,19 +234,19 @@
       <!-- DubClub Images Container -->
       <div class="w-full max-w-5xl mx-auto mb-16 sm:mb-28">
         <div class="flex flex-col w-full mx-auto gap-4">
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/dubclub-dashboard.webp" type="image/webp">
               <img src="images/dubclub-dashboard.png" alt="DubClub dashboard interface showing sports betting community management" class="w-full h-full object-cover" />
             </picture>
           </div>
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/dubclub-discovery.webp" type="image/webp">
               <img src="images/dubclub-discovery.png" alt="DubClub discovery page for finding and joining sports betting communities" class="w-full h-full object-cover" />
             </picture>
           </div>
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/dubclub-mobile-dash.webp" type="image/webp">
               <img src="images/dubclub-mobile-dash.png" alt="DubClub mobile dashboard interface for sports betting communities" class="w-full h-full object-cover" />
@@ -258,19 +277,19 @@
       <!-- Synadia Images Container -->
       <div class="w-full max-w-5xl mx-auto mb-16 sm:mb-28">
         <div class="flex flex-col w-full mx-auto gap-4">
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/synadia-auth.webp" type="image/webp">
               <img src="images/synadia-auth.png" alt="Synadia authentication interface for distributed systems management" class="w-full h-full object-cover" />
             </picture>
           </div>
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-2 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-2 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/synadia-dash.webp" type="image/webp">
               <img src="images/synadia-dash.png" alt="Synadia dashboard for monitoring and managing distributed systems at scale" class="w-full h-full object-cover" />
             </picture>
           </div>
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/synadia-stream.webp" type="image/webp">
               <img src="images/synadia-stream.png" alt="Synadia streaming interface for real-time distributed systems monitoring" class="w-full h-full object-cover" />
@@ -301,19 +320,19 @@
       <!-- Kajabi Images Container -->
       <div class="w-full max-w-5xl mx-auto mb-8 sm:mb-16">
         <div class="flex flex-col w-full mx-auto gap-4">
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/kajabi-course.webp" type="image/webp">
               <img src="images/kajabi-course.png" alt="Kajabi course builder interface for creating online courses and digital products" class="w-full h-full object-cover" />
             </picture>
           </div>
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/kajabi-outline.webp" type="image/webp">
               <img src="images/kajabi-outline.png" alt="Kajabi course outline and curriculum management interface" class="w-full h-full object-cover" />
             </picture>
           </div>
-          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+          <div class="rounded-2xl w-full shadow-sm border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
             <picture>
               <source srcset="images/webp/kajabi-community.webp" type="image/webp">
               <img src="images/kajabi-community.png" alt="Kajabi community platform for creators to build engaged audiences" class="w-full h-full object-cover" />
