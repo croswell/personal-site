@@ -4,23 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Sam Croswell - Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
-    <meta name="keywords" content="product designer, UX design, UI design, web design, California" />
+    <meta name="keywords" content="product designer, UX design, UI design, web design, California, portfolio, founding designer, DubClub, Synadia, Kajabi" />
     <meta name="author" content="Sam Croswell" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://samcroswell.com/" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://samcroswell.com/" />
     <meta property="og:title" content="Sam Croswell | Founding Product Designer" />
-    <meta property="og:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
+    <meta property="og:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and teams." />
     <meta property="og:image" content="https://samcroswell.com/images/webp/pfp.webp" />
     <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:site_name" content="Sam Croswell" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://samcroswell.com/" />
     <meta property="twitter:title" content="Sam Croswell | Founding Product Designer" />
-    <meta property="twitter:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and enterprise teams." />
+    <meta property="twitter:description" content="Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and teams." />
     <meta property="twitter:image" content="https://samcroswell.com/images/webp/pfp.webp" />
+    <meta property="twitter:creator" content="@samcroswell" />
+    <meta property="twitter:site" content="@samcroswell" />
     
     <link rel="icon" type="image/x-icon" href="fav.ico">
     <link rel="stylesheet" href="css/style.css" />
@@ -35,12 +43,73 @@
     
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sam Croswell",
+      "jobTitle": "Founding Product Designer",
+      "description": "Founding Product Designer with 13 years of experience helping launch tools that empower creators, founders, and teams.",
+      "url": "https://samcroswell.com",
+      "image": "https://samcroswell.com/images/webp/pfp.webp",
+      "sameAs": [
+        "https://www.linkedin.com/in/sam-croswell",
+        "https://www.twitter.com/samcroswell"
+      ],
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "DubClub",
+          "url": "https://dubclub.win"
+        },
+        {
+          "@type": "Organization", 
+          "name": "Synadia",
+          "url": "https://synadia.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "Kajabi", 
+          "url": "https://kajabi.com"
+        }
+      ],
+      "knowsAbout": [
+        "Product Design",
+        "UX Design", 
+        "UI Design",
+        "Brand Design",
+        "User Experience",
+        "Design Systems",
+        "Product Strategy"
+      ]
+    }
+    </script>
+    
+    <script>
+      // Video autoplay fix
+      document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('video');
+        if (video) {
+          // Try to play the video after a 1 second delay
+          setTimeout(() => {
+            video.play().catch(e => {
+              // Add click to play functionality if autoplay fails
+              video.addEventListener('click', () => {
+                video.play().catch(e => {});
+              });
+            });
+          }, 1000);
+        }
+      });
+    </script>
   </head>
-  <body class="bg-black font-[Inter] relative">
+  <body class="bg-black font-inter relative px-6">
   
     <!-- About -->
-    <div class="flex flex-col px-6 mx-auto my-16 items-center justify-center mb-24">
-      <div class="flex flex-col w-full max-w-3xl gap-12">
+    <main class="flex flex-col px-6 mx-auto my-16 items-center justify-center mb-16">
+      <div class="flex flex-col w-full max-w-2xl gap-12">
         <div class="flex gap-8 animate-fade-in delay-1 items-center">
           <div class="w-16 h-16 rounded-full overflow-hidden">
             <picture>
@@ -49,24 +118,24 @@
             </picture>
           </div>
           <div class="flex flex-col gap-3">
-            <div class="flex flex-col gap-1">
-              <span class="font-normal text-xl text-neutral-50">Sam Croswell</span>
+            <div class="flex flex-col gap-2">
+              <h1 class="font-normal text-xl text-neutral-50">Sam Croswell</h1>
               <span class="text-neutral-400 text-sm font-light uppercase" style="font-family: 'Geist Mono', monospace;">FOUNDING PRODUCT DESIGNER</span>
             </div>
           </div>
         </div>
-        <span class="text-neutral-100 text-2xl sm:text-3xl tracking-tight leading-normal font-normal animate-fade-in delay-2 flex flex-col gap-4">
+        <p class="text-neutral-100 text-2xl sm:text-3xl tracking-tight leading-normal font-normal animate-fade-in delay-2 flex flex-col gap-4">
          I build tools that empower entrepreneurs, founders, and teams to launch businesses, grow communities, and go from idea to impact.
-        </span>
-        <div class="flex gap-4 animate-fade-in delay-3">
+        </p>
+        <div class="flex items-center gap-4 animate-fade-in delay-2">
           <a
-            class="bg-neutral-50 text-neutral-950 flex items-center justify-center px-4 h-10 rounded-full text-sm font-medium leading-none hover:bg-neutral-200 transition-all duration-200"
+            class="bg-neutral-50 text-neutral-950 flex items-center justify-center px-6 h-12 rounded-full font-medium leading-none hover:bg-neutral-200 transition-all duration-200"
             href="mailto:jscroswell@gmail.com"
           >
             Contact me
           </a>
           <a
-            class="w-10 h-10 flex items-center justify-center transition-all duration-200 border border-neutral-700 rounded-full hover:bg-neutral-800"
+            class="w-12 h-12 flex items-center justify-center transition-all duration-200 border border-neutral-700 rounded-full hover:bg-neutral-800"
             href="https://www.linkedin.com/in/sam-croswell"
             target="_blank"
             aria-label="LinkedIn Profile"
@@ -74,7 +143,7 @@
             <img src="images/linkedin.svg" alt="LinkedIn" class="w-4 h-4" />
           </a>
           <a
-            class="w-10 h-10 flex items-center justify-center transition-all duration-200 border border-neutral-700 rounded-full hover:bg-neutral-800"
+            class="w-12 h-12 flex items-center justify-center transition-all duration-200 border border-neutral-700 rounded-full hover:bg-neutral-800"
             href="https://www.twitter.com/samcroswell"
             target="_blank"
             aria-label="Twitter Profile"
@@ -84,67 +153,62 @@
         </div>
       </div>
     </div>
+    
+          <!-- Hero Video -->
+    <div class="w-full max-w-5xl mx-auto mb-24">
+      <div class="rounded-2xl w-full shadow-sm p-1 border border-neutral-800 animate-fade-in delay-3 overflow-hidden" style="aspect-ratio: 16/10;">
+        <video 
+          muted
+          loop
+          playsinline
+          preload="auto"
+          class="w-full h-full object-cover rounded-xl"
+        >
+          <source src="images/dubclub-recap-hq.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
     <!-- Work -->
-    <div
-      class="flex flex-col max-w-full mx-auto items-center justify-center px-6 pb-12 animate-fade-in delay-5"
+    <section
+      class="flex flex-col max-w-full mx-auto items-center justify-center pb-12 animate-fade-in delay-5"
     >
-      <div class="w-full max-w-3xl">
+      <!-- DubClub Section -->
+      <div class="w-full max-w-2xl mx-auto mb-28">
         <div id="dubclub">
-          <div class="text-neutral-100 text-xl sm:text-2xl tracking-tight leading-normal font-normal mb-8">
-            DubClub — A redesigned brand and platform experience for discovering and creating sports betting communities.
-          </div>
           <div class="flex mb-8 gap-3 items-center">
             <picture>
               <source srcset="images/webp/dubclub-icon.webp" type="image/webp">
               <img src="images/dubclub-icon.png" alt="DubClub Icon" class="w-7 h-7 rounded-md" loading="eager" decoding="async"/>
             </picture>
-            <span class="text-sm leading-none font-light uppercase" style="font-family: 'Geist Mono', monospace;">
+            <span class="leading-none font-light uppercase" style="font-family: 'Geist Mono', monospace;">
               <span class="text-neutral-300">FOUNDING DESIGNER</span>
               <span class="text-neutral-400"> · 2024—PRESENT</span>
             </span>
           </div>
-          <div class="flex flex-col w-full mx-auto gap-2 mb-2">
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/dubclub-dashboard.webp" type="image/webp">
-                <img src="images/dubclub-dashboard.png" alt="DubClub Dashboard Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/dubclub-discovery.webp" type="image/webp">
-                <img src="images/dubclub-discovery.png" alt="DubClub Discovery Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/dubclub-desktop.webp" type="image/webp">
-                <img src="images/dubclub-desktop.png" alt="DubClub Desktop Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
+          <h2 class="text-neutral-100 text-2xl sm:text-3xl tracking-tight leading-normal font-normal">
+            DubClub — A redesigned brand and platform experience for discovering and creating sports betting communities.
+          </h2>
+        </div>
+      </div>
+      
+      <!-- DubClub Images Container -->
+      <div class="w-full max-w-5xl mx-auto mb-28">
+        <div class="flex flex-col w-full mx-auto gap-2">
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/dubclub-dashboard.png" alt="DubClub dashboard interface showing sports betting community management" class="w-full h-full object-cover" />
           </div>
-          <!-- DubClub Testimonial -->
-          <div class="flex flex-col items-start sm:items-center justify-center rounded-2xl mb-24 border border-neutral-800 px-8 py-12">
-                      <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
-            <picture>
-              <source srcset="images/webp/ryan-gaertner.webp" type="image/webp">
-              <img src="images/ryan-gaertner.png" alt="Ryan Gaertner" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
-            </picture>
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/dubclub-discovery.png" alt="DubClub discovery page for finding and joining sports betting communities" class="w-full h-full object-cover" />
           </div>
-            <div class="text-left sm:text-center max-w-xl">
-              <p class="text-neutral-300 leading-relaxed mb-4 font-[Inter]">
-                &ldquo;Sam is a relentlessly action-oriented problem solver. He ships thoughtful solutions fast with empathy and conviction.&rdquo;
-              </p>
-              <p class="text-neutral-500 text-sm font-light uppercase" style="font-family: 'Geist Mono', monospace;">
-                RYAN GAERTNER, CEO & CO-FOUNDER
-              </p>
-            </div>
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/dubclub-mobile-dash.png" alt="DubClub mobile dashboard interface for sports betting communities" class="w-full h-full object-cover" />
           </div>
         </div>
+      </div>
+      
+      <!-- Synadia Section -->
+      <div class="w-full max-w-3xl mx-auto mb-28">
         <div id="synadia">
-          <div class="text-neutral-100 text-xl sm:text-2xl tracking-tight leading-normal font-normal mb-8">
-            Synadia — Developed the brand and platform for building and managing distributed systems at scale.
-          </div>
           <div class="flex mb-8 gap-3 items-center">
             <picture>
               <source srcset="images/webp/synadia-icon.webp" type="image/webp">
@@ -155,48 +219,30 @@
               <span class="text-neutral-400"> · 2022—2024</span>
             </span>
           </div>
-          <div class="flex flex-col w-full mx-auto gap-2 mb-2">
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/synadia-auth.webp" type="image/webp">
-                <img src="images/synadia-auth.png" alt="Synadia Authentication Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-2" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/synadia-accounts.webp" type="image/webp">
-                <img src="images/synadia-accounts.png" alt="Synadia Accounts Management" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/synadia-streaming.webp" type="image/webp">
-                <img src="images/synadia-streaming.png" alt="Synadia Streaming Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
+          <h2 class="text-neutral-100 text-2xl sm:text-3xl tracking-tight leading-normal font-normal">
+            Synadia — Developed the brand and platform for building and managing distributed systems at scale.
+          </h2>
+        </div>
+      </div>
+      
+      <!-- Synadia Images Container -->
+      <div class="w-full max-w-5xl mx-auto mb-28">
+        <div class="flex flex-col w-full mx-auto gap-2">
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/synadia-auth.png" alt="Synadia authentication interface for distributed systems management" class="w-full h-full object-cover" />
           </div>
-          <!-- Synadia Testimonial -->
-          <div class="flex flex-col items-start sm:items-center justify-center rounded-2xl mb-24 border border-neutral-800 px-8 py-12">
-                      <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
-            <picture>
-              <source srcset="images/webp/byron-ruth.webp" type="image/webp">
-              <img src="images/byron-ruth.jpg" alt="Byron Ruth" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
-            </picture>
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-2 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/synadia-dash.png" alt="Synadia dashboard for monitoring and managing distributed systems at scale" class="w-full h-full object-cover" />
           </div>
-            <div class="text-left sm:text-center max-w-xl">
-              <p class="text-neutral-300 leading-relaxed mb-4 font-[Inter]">
-                &ldquo;Sam's ability to ramp up quickly, understand infras teams workflows, and solve their problems made him a key player in launching our platform.&rdquo;
-              </p>
-              <p class="text-neutral-500 text-sm font-light uppercase" style="font-family: 'Geist Mono', monospace;">
-                BYRON RUTH, VP OF PRODUCT
-              </p>
-            </div>
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/synadia-stream.png" alt="Synadia streaming interface for real-time distributed systems monitoring" class="w-full h-full object-cover" />
           </div>
         </div>
+      </div>
+      
+      <!-- Kajabi Section -->
+      <div class="w-full max-w-3xl mx-auto mb-28">
         <div id="kajabi">
-          <div class="text-neutral-100 text-xl sm:text-2xl tracking-tight leading-normal font-normal mb-8">
-            Kajabi — Relaunched the brand and all-in-one platform for creators to build, market, and sell online courses and digital products.
-          </div>
           <div class="flex mb-8 gap-3 items-center">
             <picture>
               <source srcset="images/webp/kajabi-icon.webp" type="image/webp">
@@ -207,58 +253,38 @@
               <span class="text-neutral-400"> · 2012—2022</span>
             </span>
           </div>
-          <div class="flex flex-col w-full mx-auto gap-2 mb-2">
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/kajabi-course-builder.webp" type="image/webp">
-                <img src="images/kajabi-course-builder.png" alt="Kajabi Course Builder Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/kajabi-course-outline.webp" type="image/webp">
-                <img src="images/kajabi-course-outline.png" alt="Kajabi Course Outline Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
-            <div class="rounded-2xl w-full shadow-sm bg-black border border-neutral-800 p-1" style="aspect-ratio: 16/10;">
-              <picture>
-                <source srcset="images/webp/kajabi-community.webp" type="image/webp">
-                <img src="images/kajabi-community.png" alt="Kajabi Community Interface" class="w-full h-full object-contain rounded-lg" loading="lazy" decoding="async"/>
-              </picture>
-            </div>
+          <h2 class="text-neutral-100 text-2xl sm:text-3xl tracking-tight leading-normal font-normal">
+            Kajabi — Relaunched the brand and all-in-one platform for creators to build, market, and sell online courses and digital products.
+          </h2>
+        </div>
+      </div>
+      
+      <!-- Kajabi Images Container -->
+      <div class="w-full max-w-5xl mx-auto mb-16">
+        <div class="flex flex-col w-full mx-auto gap-2">
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/kajabi-course.png" alt="Kajabi course builder interface for creating online courses and digital products" class="w-full h-full object-cover" />
           </div>
-          <!-- Kajabi Testimonial -->
-          <div class="flex flex-col items-start sm:items-center justify-center rounded-2xl mb-12 border border-neutral-800 px-8 py-12">
-                      <div class="w-12 h-12 rounded-full overflow-hidden mb-6 sm:mx-auto">
-            <picture>
-              <source srcset="images/webp/court-mcfadzean.webp" type="image/webp">
-              <img src="images/court-mcfadzean.jpg" alt="Court McFadzean" class="w-full h-full object-cover grayscale" loading="lazy" decoding="async"/>
-            </picture>
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/kajabi-outline.png" alt="Kajabi course outline and curriculum management interface" class="w-full h-full object-cover" />
           </div>
-            <div class="text-left sm:text-center max-w-xl">
-              <p class="text-neutral-300 leading-relaxed mb-4 font-[Inter]">
-                &ldquo;Sam sets a high bar across every design detail. He leads with empathy, speed, and a focus on solving for clear outcomes.&rdquo;
-              </p>
-              <p class="text-neutral-500 text-sm font-light uppercase" style="font-family: 'Geist Mono', monospace;">
-                COURT MCFADZEAN, VP OF UX
-              </p>
-            </div>
+          <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-1 overflow-hidden" style="aspect-ratio: 16/10;">
+            <img src="images/kajabi-community.png" alt="Kajabi community platform for creators to build engaged audiences" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
+      
+
     </div>
+    </section>
     <!-- Contact -->
-    <div class="flex flex-col px-8 mx-auto items-center justify-center pb-32 animate-fade-in delay-4">
-      <!-- Divider -->
-      <div class="flex justify-center mb-16">
-        <div class="w-24 h-px bg-neutral-700"></div>
-      </div>
+    <footer class="flex flex-col px-8 mx-auto items-center justify-center pb-32 animate-fade-in delay-4">
       <div class="flex flex-col max-w-2xl gap-8 items-center text-center">
-        <h2 class="text-2xl font-normal text-neutral-100">
+        <h2 class="text-3xl font-normal text-neutral-100">
           Want to see more of my work?
         </h2>
         <a
-          class="bg-neutral-50 text-neutral-950 px-8 py-4 rounded-full w-fit items-center text-sm font-medium leading-none hover:bg-neutral-200 transition-all duration-200 flex gap-2"
+          class="bg-neutral-50 text-neutral-950 px-8 py-4 rounded-full w-fit items-center font-medium leading-none hover:bg-neutral-200 transition-all duration-200 flex gap-2"
           href="https://www.twitter.com/samcroswell"
           target="_blank"
         >
@@ -267,6 +293,7 @@
         </a>
       </div>
     </div>
+    </footer>
     <script>
       // Initialize Lucide icons
       lucide.createIcons();
