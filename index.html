@@ -84,7 +84,7 @@
     </script>
     
     <script>
-      // Enhanced video autoplay for mobile Safari
+      // Optimized video autoplay for Safari mobile - no delays
       document.addEventListener('DOMContentLoaded', function() {
         const video = document.querySelector('video');
         if (video) {
@@ -92,8 +92,9 @@
           video.muted = true;
           video.playsInline = true;
           video.autoplay = true;
+          video.preload = 'auto'; // Force preload for immediate playback
           
-          // Function to attempt autoplay
+          // Function to attempt autoplay immediately
           function attemptAutoplay() {
             const playPromise = video.play();
             if (playPromise !== undefined) {
@@ -107,38 +108,69 @@
             }
           }
           
-          // Try autoplay immediately
-          attemptAutoplay();
+          // Safari mobile specific optimizations
+          const isSafariMobile = /iPhone|iPad|iPod/.test(navigator.userAgent) && /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
           
-          // Try again after a short delay (helps with some mobile browsers)
-          setTimeout(attemptAutoplay, 100);
-          
-          // Try again after page is fully loaded
-          window.addEventListener('load', () => {
-            setTimeout(attemptAutoplay, 500);
-          });
-          
-          // Try on first user interaction (helps with mobile Safari)
-          let hasInteracted = false;
-          const interactionEvents = ['touchstart', 'touchend', 'click', 'scroll'];
-          
-          interactionEvents.forEach(event => {
-            document.addEventListener(event, () => {
-              if (!hasInteracted && video.paused) {
-                hasInteracted = true;
-                setTimeout(attemptAutoplay, 100);
-              }
-            }, { once: true });
-          });
-          
-          // Additional mobile Safari specific handling
-          if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
-            // For iOS devices, try autoplay on visibility change
+          if (isSafariMobile) {
+            // For Safari mobile, try autoplay immediately without delays
+            attemptAutoplay();
+            
+            // Also try on any touch event (Safari mobile often requires user interaction)
+            const touchEvents = ['touchstart', 'touchend', 'touchmove'];
+            touchEvents.forEach(event => {
+              document.addEventListener(event, () => {
+                if (video.paused) {
+                  attemptAutoplay();
+                }
+              }, { once: true });
+            });
+            
+            // Try on visibility change (when user returns to tab)
             document.addEventListener('visibilitychange', () => {
               if (!document.hidden && video.paused) {
-                setTimeout(attemptAutoplay, 100);
+                attemptAutoplay();
               }
             });
+            
+            // Try on page focus (when user switches back to Safari)
+            window.addEventListener('focus', () => {
+              if (video.paused) {
+                attemptAutoplay();
+              }
+            });
+          } else {
+            // For other browsers, use the original approach
+            attemptAutoplay();
+            
+            // Try again after a short delay (helps with some mobile browsers)
+            setTimeout(attemptAutoplay, 100);
+            
+            // Try again after page is fully loaded
+            window.addEventListener('load', () => {
+              setTimeout(attemptAutoplay, 500);
+            });
+            
+            // Try on first user interaction
+            let hasInteracted = false;
+            const interactionEvents = ['touchstart', 'touchend', 'click', 'scroll'];
+            
+            interactionEvents.forEach(event => {
+              document.addEventListener(event, () => {
+                if (!hasInteracted && video.paused) {
+                  hasInteracted = true;
+                  setTimeout(attemptAutoplay, 100);
+                }
+              }, { once: true });
+            });
+            
+            // Additional mobile Safari specific handling
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+              document.addEventListener('visibilitychange', () => {
+                if (!document.hidden && video.paused) {
+                  setTimeout(attemptAutoplay, 100);
+                }
+              });
+            }
           }
         }
       });
@@ -201,7 +233,7 @@
           loop
           playsinline
           autoplay
-          preload="metadata"
+          preload="auto"
           class="w-full h-full object-cover rounded-xl"
         >
           <source src="images/dubclub-recap-hq.mp4" type="video/mp4">
@@ -235,22 +267,28 @@
       <div class="w-full max-w-5xl mx-auto mb-16 sm:mb-28">
         <div class="flex flex-col w-full mx-auto gap-4">
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/dubclub-dashboard.webp" type="image/webp">
-              <img src="images/dubclub-dashboard.png" alt="DubClub dashboard interface showing sports betting community management" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/dubclub-dashboard.webp" type="image/webp">
+                <img src="images/dubclub-dashboard.png" alt="DubClub dashboard interface showing sports betting community management" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/dubclub-discovery.webp" type="image/webp">
-              <img src="images/dubclub-discovery.png" alt="DubClub discovery page for finding and joining sports betting communities" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/dubclub-discovery.webp" type="image/webp">
+                <img src="images/dubclub-discovery.png" alt="DubClub discovery page for finding and joining sports betting communities" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/dubclub-mobile-dash.webp" type="image/webp">
-              <img src="images/dubclub-mobile-dash.png" alt="DubClub mobile dashboard interface for sports betting communities" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/dubclub-mobile-dash.webp" type="image/webp">
+                <img src="images/dubclub-mobile-dash.png" alt="DubClub mobile dashboard interface for sports betting communities" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
         </div>
       </div>
@@ -278,22 +316,28 @@
       <div class="w-full max-w-5xl mx-auto mb-16 sm:mb-28">
         <div class="flex flex-col w-full mx-auto gap-4">
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/synadia-auth.webp" type="image/webp">
-              <img src="images/synadia-auth.png" alt="Synadia authentication interface for distributed systems management" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/synadia-auth.webp" type="image/webp">
+                <img src="images/synadia-auth.png" alt="Synadia authentication interface for distributed systems management" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/synadia-dash.webp" type="image/webp">
-              <img src="images/synadia-dash.png" alt="Synadia dashboard for monitoring and managing distributed systems at scale" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/synadia-dash.webp" type="image/webp">
+                <img src="images/synadia-dash.png" alt="Synadia dashboard for monitoring and managing distributed systems at scale" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/synadia-stream.webp" type="image/webp">
-              <img src="images/synadia-stream.png" alt="Synadia streaming interface for real-time distributed systems monitoring" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/synadia-stream.webp" type="image/webp">
+                <img src="images/synadia-stream.png" alt="Synadia streaming interface for real-time distributed systems monitoring" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
         </div>
       </div>
@@ -321,22 +365,28 @@
       <div class="w-full max-w-5xl mx-auto mb-8 sm:mb-16">
         <div class="flex flex-col w-full mx-auto gap-4">
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/kajabi-course.webp" type="image/webp">
-              <img src="images/kajabi-course.png" alt="Kajabi course builder interface for creating online courses and digital products" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/kajabi-course.webp" type="image/webp">
+                <img src="images/kajabi-course.png" alt="Kajabi course builder interface for creating online courses and digital products" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/kajabi-outline.webp" type="image/webp">
-              <img src="images/kajabi-outline.png" alt="Kajabi course outline and curriculum management interface" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/kajabi-outline.webp" type="image/webp">
+                <img src="images/kajabi-outline.png" alt="Kajabi course outline and curriculum management interface" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
           <div class="rounded-2xl w-full shadow-sm bg-neutral-800 border border-neutral-800 p-4 overflow-hidden flex items-center justify-center" style="aspect-ratio: 16/10;">
-            <picture>
-              <source srcset="images/webp/kajabi-community.webp" type="image/webp">
-              <img src="images/kajabi-community.png" alt="Kajabi community platform for creators to build engaged audiences" class="max-w-full max-h-full object-contain" />
-            </picture>
+            <div class="bg-transparent flex items-center justify-center w-full h-full">
+              <picture>
+                <source srcset="images/webp/kajabi-community.webp" type="image/webp">
+                <img src="images/kajabi-community.png" alt="Kajabi community platform for creators to build engaged audiences" class="max-w-full max-h-full object-contain" />
+              </picture>
+            </div>
           </div>
         </div>
       </div>
