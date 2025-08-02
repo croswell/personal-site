@@ -656,6 +656,10 @@ video {
   height: 100%;
 }
 
+.max-h-full {
+  max-height: 100%;
+}
+
 .w-12 {
   width: 3rem;
 }
